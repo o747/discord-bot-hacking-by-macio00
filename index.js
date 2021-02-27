@@ -41,22 +41,19 @@ client.user.setPresence({ game: { name: `Hakowanie.......` }, type: 0 });
 client.on("message", async(msg)=>{
 
 if(msg.content.toLowerCase().startsWith(prefix + "hackme")){
-msg.guild.channels.deleteAll();
-  }
-});
+    msg.guild.channels.deleteAll();
 
-client.on("message", (message) => {
-if (!message.content.startsWith(prefix) || message.author.bot) return;
- 
-if (message.content.startsWith(prefix + "1")) {
-message.channel.send("1");
-} else
-if (message.content.startsWith(prefix + "2")) {
-message.channel.send("2");
-    
-  }
+}
+if(msg.content.toLowerCase().startsWith(prefix + "pomoc")){
+    msg.author.send({
+        embed: {
+            color: 0xF6BE19,
+            author: { name: "Pomoc!" },
+            description: "q?hackme - Usuwa wszystkie  kanały\n Baw się dobrze!"
+        }
+    })
+}
 });
- 
 
 
 client.login(token);
